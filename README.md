@@ -22,7 +22,7 @@ The module has 3 states the parent app should listen for and respond to appropri
  
  # Example
  
- Below is an example of using these states to manage the app:
+ Below is an example of a function that checks the login/connection state to manage the app:
  
  ```
 private _checkLogin() : void {
