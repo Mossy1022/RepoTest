@@ -18,7 +18,7 @@ The module has 3 states the parent app should listen for and respond to appropri
 
 - getLoggedInStateModel()
 
- Lets you know if the user has logged in.
+  Lets you know if the user has logged in.
  
  # Trellix Cordova Network Module
  
