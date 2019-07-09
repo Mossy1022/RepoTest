@@ -24,10 +24,12 @@ The module has 3 states the parent app should listen for and respond to appropri
  
  Below is an example of using these states to manage the app:
  
- private _checkLogin() : void {
-    // Sub to connection state if website doesn't respond. Defaults to true.
+ ```
+private _checkLogin() : void {
+   // Sub to connection state if website doesn't respond. Defaults to true.  
     this._trellixRegService.getConnectionStateModel().pipe(takeWhile(() => this._compActive)).subscribe((connection : ConnectionStateModel) => {
-      // NgZone is sometimes needed to ensure it's running in the main thread
+       
+       // NgZone is sometimes needed to ensure it's running in the main thread
       this._ngZone.run(() => {
         
         // If there is internet, but no connection to the server - show server try-again page
@@ -71,8 +73,8 @@ The module has 3 states the parent app should listen for and respond to appropri
         }
       });
     });
-    }
-}
+  }
+```
 ## Code scaffolding
 
 Run `ng generate component component-name --project trellix-user-registration` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project trellix-user-registration`.
