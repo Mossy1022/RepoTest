@@ -10,7 +10,7 @@ The module has 3 states the parent app should listen for and respond to appropri
 
 - getConnectionStateModel()
   
-  Lets you know if the website being routed to does not respond or emits an error
+  Lets you know if the website being routed to does not respond or emits an error.  Does not check if the current device has internet connection.
 
 - getLoginCheckedStateModel()
 
@@ -20,9 +20,9 @@ The module has 3 states the parent app should listen for and respond to appropri
 
  Lets you know if the user has logged in.
  
- # Trellix Cordova Utility
+ # Trellix Cordova Network Module
  
-For checking if the app is connected to internet - the TrellixCordovaNetworkStateService from the trellix-cordova-network library is used in conjunction.  The app should subscribe to the getNetworkStateSub method of the service. Below is an example of how the parent component handles a change in connection state.
+For checking if the device is connected to internet, the TrellixCordovaNetworkStateService from the trellix-cordova-network library is used in conjunction.  The parent component should subscribe to the getNetworkStateSub method of the service. Below is an example of how the component handles a change in connection state.
 
 ```
 private _checkInternetConnection() : void {
@@ -50,6 +50,9 @@ private _checkInternetConnection() : void {
 
 # Trellix Try Again
 
+If you noted in the above code, there is a markup and configuration that is set if there is a connection error.  
+In conjunction with the other two modules, the Trellix Try Again module is used to display errors in connection and must also be imported to the parent app if you wish to use it.
+
 The above code updates the markup object sent into the trellix-try-again component that is used to display connection errors, with or without a try again button depending on the showActionButton configuration.  For clarity, trellix try again has 2 inputs:
 
 - Configuration
@@ -63,6 +66,7 @@ As well as an output for btn-clicked.  In this case, the retry button.
  
  ```
 private _checkLogin() : void {
+   
    // Sub to connection state if website doesn't respond. Defaults to true.  
     this._trellixRegService.getConnectionStateModel().pipe(takeWhile(() => this._compActive)).subscribe((connection : ConnectionStateModel) => {
        
@@ -71,6 +75,7 @@ private _checkLogin() : void {
         
         // If there is internet, but no connection to the server - show server try-again page
         if (!connection.connected  && !this.noInternet) {
+          
           // Update markup and config of try again component to display.  Since a problem with
           // The server and not the internet connection, no option to try again
           this.cordovaMarkup = {
@@ -81,6 +86,7 @@ private _checkLogin() : void {
           this.tryAgainConfig = {
             showActionButton: true
           };
+          
           // This variable is checked in the html markup for whether or not to display the try again componenent instead of user registration
           this.connectionError = true;
         } else {
