@@ -20,7 +20,7 @@ The module has 3 states the parent app should listen for and respond to appropri
 
  Lets you know if the user has logged in.
  
- # Cordova Utility
+ # Trellix Cordova Utility
  
 For checking if the app is connected to internet - the TrellixCordovaNetworkStateService from the trellix-cordova-network library is used in conjunction.  The app should subscribe to the getNetworkStateSub method of the service. Below is an example of how the parent component handles a change in connection state.
 
@@ -47,8 +47,15 @@ private _checkInternetConnection() : void {
   }
   
   ```
- 
-The above code updates the markup object sent into the trellix-try-again component that is used to display connection errors, with or without a try again button depending on the showAction button configuration.
+
+# Trellix Try Again
+
+The above code updates the markup object sent into the trellix-try-again component that is used to display connection errors, with or without a try again button depending on the showActionButton configuration.  For clarity, trellix try again has 2 inputs:
+
+- Configuration
+- Markup Object
+
+As well as an output for btn-clicked.  In this case, the retry button.
  
  # Example
  
