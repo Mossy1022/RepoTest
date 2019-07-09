@@ -6,7 +6,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 This library opens the cloud portal for universal registration among apps.  To use, this module must be imported within the parent component of the application (typically that is the app component, but may vary).
 
-The module has 3 states the parent app should listen for and respond to appropriately:
+The component should use the TrellixUserRegistrationStateService to subscribe to the 3 states and respond appropriately:
 
 - getConnectionStateModel()
   
