@@ -118,6 +118,7 @@ private _checkLogin() : void {
     });
   }
 ```
+
 ## Code scaffolding
 
 Run `ng generate component component-name --project trellix-user-registration` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project trellix-user-registration`.
