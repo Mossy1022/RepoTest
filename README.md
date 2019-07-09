@@ -25,7 +25,6 @@ The module has 3 states the parent app should listen for and respond to appropri
  Below is an example of using these states to manage the app:
  
  private _checkLogin() : void {
-
     // Sub to connection state if website doesn't respond. Defaults to true.
     this._trellixRegService.getConnectionStateModel().pipe(takeWhile(() => this._compActive)).subscribe((connection : ConnectionStateModel) => {
       
@@ -73,7 +72,7 @@ The module has 3 states the parent app should listen for and respond to appropri
         }
       });
     });
-  }
+    }
 
 ## Code scaffolding
 
