@@ -4,7 +4,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 # Setup
 
-This library opens the cloud portal for universal registration among apps.  To use, this module must be placed within the parent component of the application.
+This library opens the cloud portal for universal registration among apps.  To use, this module must be imported within the parent component of the application (typically that is the app component, but may vary).
 
 The module has 3 states the parent app should listen for and respond to appropriately:
 
