@@ -119,6 +119,22 @@ private _checkLogin() : void {
   }
 ```
 
+HTML Code
+
+```
+<div *ngIf="isLoggedIn">
+  <eaton-auth-mdns *ngIf="isDevice" (doLoginActions)="submitLogin($event)"
+                   (demoModeChanged)="demoModeChanged($event)" [requestSent]="requestSent" (side-action)="processSideNavAction($event)"></eaton-auth-mdns>
+  <eaton-auth-authorization *ngIf="!isDevice"></eaton-auth-authorization>
+</div>
+<div *ngIf="!isLoggedIn && !connectionError && loginChecked">
+  <trellix-user-registration></trellix-user-registration>
+</div>
+<div *ngIf="!isLoggedIn && (connectionError || noInternet) && loginChecked">
+  <trellix-try-again [markup]="cordovaMarkup" [config]="tryAgainConfig" (btn-pressed)="retryConnecting()" ></trellix-try-again>
+ </div>
+ ```
+
 ## Code scaffolding
 
 Run `ng generate component component-name --project trellix-user-registration` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project trellix-user-registration`.
